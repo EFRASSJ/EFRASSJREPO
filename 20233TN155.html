@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Efrain</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .Perfil, #CARRU {
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        #CARRU {
+            text-align: center;
+        }
+        #CARRU img {
+            width: 500px;
+            height: auto;
+        }
+        #buttons {
+            margin-top: 20px;
+        }
+        #buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="Perfil">
+        <h1>Mi Información</h1>
+        <ul>
+            <li><strong>Nombre:</strong> Efrain</li>
+            <li><strong>Carrera:</strong> Desarrollo de Software Multiplataforma</li>
+            <li><strong>Grupo:</strong> 3 F</li>
+            <li><strong>Correo:</strong> 20233tn155@utez.edu.mx</li>
+            <li><strong>Matrícula:</strong> 20233tn155</li>
+        </ul>
+
+        <h2>Mis Estudios son:</h2>
+        <p>CECyTE</p>
+
+        <h2>Pasatiempos</h2>
+        <ul>
+            <li>Escuchar Música</li>
+            <li>Jugar Videojuegos</li>
+            <li>Jugar Futbol Americano</li>
+        </ul>
+    </div>
+
+    <div id="CARRU">
+        <img id="image" src="" alt="Presentación de Imágenes">
+        <div id="buttons">
+            <button id="Anterior">Anterior</button>
+            <button id="Siguiente">Siguiente</button>
+        </div>
+    </div>
+
+    <script>
+    
+        const images = [
+            'IMG/carruselEfra1.jpg',
+            'IMG/carruselEfra2.jpg',
+            'IMG/carruselEfra3.jpg',
+            'IMG/carruselEfra4.jpg',
+            'IMG/carruselEfra.jpg'
+        ];
+        let currentIndex = 0;
+
+        // Elemento img
+        const imgElement = document.getElementById('image');
+
+        // Botones
+        const AnteriorButton = document.getElementById('prev');
+        const SiguienteButton = document.getElementById('next');
+
+        // Función para mostrar la imagen actual
+        function showImage(index) {
+            imgElement.src = images[index];
+        }
+
+        // Función para mostrar la imagen anterior
+        function showAnteriorImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        // Función para mostrar la imagen siguiente
+        function showSiguienteImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        // EventListeners para los botones
+        AnteriorButton.addEventListener('click', showAnteriosImage);
+        SiguienteButton.addEventListener('click', showSiguienteImage);
+
+        // Mostrar la primera imagen al cargar la página
+        showImage(currentIndex);
+    </script>
+</body>
+</html>
